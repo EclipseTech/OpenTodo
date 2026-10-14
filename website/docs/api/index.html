@@ -47,6 +47,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -84,6 +86,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -987,6 +991,48 @@ export TOKEN=ot_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
 <td><code>/api/v1/backups/test</code></td>
 <td>owner</td>
 <td>write and delete a probe object at the saved destination → 200 <code>{ok:true}</code> or 502 <code>destination_error</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/v1/backups/archives</code></td>
+<td>owner</td>
+<td>archives in the destination, newest first, see <a href="#restore-from-the-web-app">Restore</a></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/v1/backups/restore</code></td>
+<td>owner</td>
+<td>staged restore, last restore outcome, safety copies, free space</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/v1/backups/restore/uploads</code></td>
+<td>owner</td>
+<td>raw archive body → 201 staged upload</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/v1/backups/restore/prepare</code></td>
+<td>owner</td>
+<td><code>{source, passphrase?}</code> → verified preview</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/v1/backups/restore</code></td>
+<td>owner, fresh session</td>
+<td><code>{id, confirm:&quot;RESTORE&quot;}</code> → 202, then the server restarts</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/v1/backups/restore/{id}</code></td>
+<td>owner</td>
+<td>cancel a staged restore → 204</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/v1/backups/restore/safety-copies/{name}</code></td>
+<td>owner, fresh session</td>
+<td>delete a safety copy → 204</td>
 </tr>
 </tbody></table></div>
 <h3 id="passkeys">Passkeys<a class="anchor" href="#passkeys" aria-label="Link to this section: Passkeys">#</a></h3>
@@ -1898,7 +1944,24 @@ curl -sS -X POST &quot;$OT/api/v1/users/$OWNER_ID/deactivate&quot; -H &quot;Auth
 <p><strong>Run now</strong> — <code>POST /api/v1/backups/run</code> → 202 <code>{&quot;status&quot;:&quot;started&quot;}</code>; poll the status for the outcome. A request while a backup runs is a 409 <code>conflict</code> and starts nothing.</p>
 <pre tabindex="0"><code class="language-bash">curl -sS -X POST &quot;$OT/api/v1/backups/run&quot; -H &quot;Authorization: Bearer $TOKEN&quot;
 curl -sS &quot;$OT/api/v1/backups&quot; -H &quot;Authorization: Bearer $TOKEN&quot; | jq '.lastRun'</code></pre>
-<p><strong>Test destination</strong> — <code>POST /api/v1/backups/test</code> writes a small <code>opentodo-probe-&lt;ms&gt;.txt</code> object to the saved destination and deletes it again → 200 <code>{&quot;ok&quot;:true}</code>. A destination failure is a 502 <code>destination_error</code> whose message is the destination&#39;s own (for example <code>s3 put opentodo/opentodo-probe-…: 403 Forbidden AccessDenied: …</code>). The server contacts a remote destination only for a test or a run.</p>
+<p><strong>Test destination</strong> — <code>POST /api/v1/backups/test</code> writes a small <code>opentodo-probe-&lt;ms&gt;.txt</code> object to the saved destination and deletes it again → 200 <code>{&quot;ok&quot;:true}</code>. A destination failure is a 502 <code>destination_error</code> whose message is the destination&#39;s own (for example <code>s3 put opentodo/opentodo-probe-…: 403 Forbidden AccessDenied: …</code>). The server contacts a remote destination only for a test, a run, the archive list or a restore.</p>
+<h4 id="restore-from-the-web-app">Restore from the web app<a class="anchor" href="#restore-from-the-web-app" aria-label="Link to this section: Restore from the web app">#</a></h4>
+<p>The owner can restore the whole server from a backup without shell access (see <a href="/docs/backups/#restore-from-the-web-app">backups.md</a>). The flow is <em>prepare</em> (verify and preview, nothing changes), then <em>confirm</em> (the server restarts and applies it before reopening the database). Every route below needs the owner (403 <code>forbidden</code> otherwise, before anything is read or stored) and is refused on a demo instance.</p>
+<p><strong>List archives</strong> — <code>GET /api/v1/backups/archives</code> → <code>{&quot;destination&quot;: &quot;/data/backups&quot;, &quot;archives&quot;: [{&quot;name&quot;: &quot;opentodo-20261013-030000-4f1c0a9e.tar.gz.enc&quot;, &quot;size&quot;: 182344, &quot;createdAt&quot;: 1791860400000, &quot;encrypted&quot;: true}]}</code>. Objects that are not OpenTodo archives are left out. An unreachable destination is a 502 <code>destination_error</code> naming it without credentials.</p>
+<p><strong>Upload</strong> — <code>POST /api/v1/backups/restore/uploads</code> with the archive as the raw body (<code>Content-Type: application/octet-stream</code>) → 201 with the staged restore (below). The body is streamed to <code>&lt;data&gt;/tmp/restore/&lt;id&gt;/</code>. Errors: 400 <code>integrity</code> (not an OpenTodo archive; nothing is kept), 507 <code>insufficient_storage</code> (the free space cannot hold the archive plus twice the current database and a 64 MiB margin; the partial file is removed). A reverse proxy with a small body limit answers 413 before the request arrives.</p>
+<pre tabindex="0"><code class="language-sh">curl -sS -X POST &quot;$OT/api/v1/backups/restore/uploads&quot; -b cookies.txt \
+  -H 'Content-Type: application/octet-stream' --data-binary @opentodo-20261010-030000-4f1c0a9e.tar.gz</code></pre>
+<p><strong>Prepare</strong> — <code>POST /api/v1/backups/restore/prepare</code> with exactly one source and an optional passphrase:</p>
+<pre tabindex="0"><code class="language-json">{&quot;source&quot;: {&quot;archive&quot;: &quot;opentodo-20261013-030000-4f1c0a9e.tar.gz.enc&quot;}, &quot;passphrase&quot;: &quot;only for another server's archive&quot;}</code></pre>
+<p><code>source</code> is <code>{&quot;archive&quot;: name}</code> (from the list), <code>{&quot;upload&quot;: id}</code> or <code>{&quot;safetyCopy&quot;: &quot;opentodo.db.pre-restore-20261013-030000&quot;}</code> (undo). Encrypted archives are tried with the stored backup passphrase when none is given. The response is the staged restore:</p>
+<pre tabindex="0"><code class="language-json">{&quot;id&quot;: &quot;3f9c…&quot;, &quot;source&quot;: &quot;archive&quot;, &quot;archive&quot;: &quot;opentodo-20261013-030000-4f1c0a9e.tar.gz.enc&quot;, &quot;size&quot;: 182344, &quot;encrypted&quot;: true,
+ &quot;manifest&quot;: {&quot;appVersion&quot;: &quot;0.4.0&quot;, &quot;schemaVersion&quot;: 31, &quot;createdAt&quot;: &quot;2026-10-13T03:00:00Z&quot;, …},
+ &quot;counts&quot;: {&quot;accounts&quot;: 2, &quot;projects&quot;: 7, &quot;tasks&quot;: 214, &quot;ops&quot;: 5120},
+ &quot;verified&quot;: true, &quot;createdAt&quot;: 1791900000000, &quot;expiresAt&quot;: 1791901800000}</code></pre>
+<p>Errors: 422 <code>passphrase_required</code> / <code>passphrase_invalid</code>, 409 <code>newer_schema</code> (names both versions), 400 <code>integrity</code> (the failed check; staged files are removed), 400 <code>invalid_input</code> with <code>field: &quot;source&quot;</code> (a path or a name that is not an archive; no destination is contacted), 404 <code>not_found</code>, 502 <code>destination_error</code>, 507 <code>insufficient_storage</code>, 429 <code>rate_limited</code> (the re-authentication limit, against passphrase guessing). Only one restore is staged at a time; preparing another replaces it, and an unconfirmed one expires after 30 minutes.</p>
+<p><strong>Confirm</strong> — <code>POST /api/v1/backups/restore</code> with <code>{&quot;id&quot;: &quot;3f9c…&quot;, &quot;confirm&quot;: &quot;RESTORE&quot;}</code> → 202 <code>{&quot;status&quot;: &quot;restarting&quot;}</code>. The server shuts down gracefully, applies the restore before the database reopens (safety copy <code>opentodo.db.pre-restore-&lt;ts&gt;</code>, new log generation) and starts again in the same process; poll <code>GET /healthz</code>. Errors: 400 <code>invalid_input</code> with <code>field: &quot;confirm&quot;</code>, 404 <code>not_found</code> (unknown or expired id), 409 <code>conflict</code> (a backup is running), 403 <code>reauth_required</code> (re-authenticate first) and 403 <code>session_required</code> for any API token: only a signed-in owner can restore.</p>
+<p><strong>State</strong> — <code>GET /api/v1/backups/restore</code> → <code>{&quot;staged&quot;: {…} | null, &quot;last&quot;: {&quot;source&quot;, &quot;archive&quot;, &quot;actorId&quot;, &quot;requestedAt&quot;, &quot;finishedAt&quot;, &quot;ok&quot;, &quot;error&quot;?, &quot;safetyCopy&quot;?} | null, &quot;safetyCopies&quot;: [{&quot;name&quot;, &quot;size&quot;, &quot;createdAt&quot;}], &quot;undoAvailable&quot;: true, &quot;freeBytes&quot;: 51539607552, &quot;uploadLimit&quot;: 51400000000}</code>. <code>freeBytes</code> and <code>uploadLimit</code> are -1 where the platform cannot tell. A restore that failed while applying left the previous database in place; <code>last.error</code> says why.</p>
+<p><strong>Cancel</strong> — <code>DELETE /api/v1/backups/restore/{id}</code> → 204; the staged files are removed. <strong>Delete a safety copy</strong> — <code>DELETE /api/v1/backups/restore/safety-copies/{name}</code> → 204 (fresh session, no API tokens; 400 <code>invalid_input</code> for a name that is not a safety copy).</p>
 <h3 id="audit-log">Audit log<a class="anchor" href="#audit-log" aria-label="Link to this section: Audit log">#</a></h3>
 <p>The server records security-relevant events in its own database (never synced to devices, never part of <code>/api/v1/export</code>). The owner reads, filters and exports the log; every user reads their own access events. There is no route to modify or delete an event: <code>PATCH</code>/<code>DELETE /api/v1/audit/{id}</code> answer 404 <code>not_found</code>. Events are removed only by retention pruning (and addresses only by disabling address logging).</p>
 <p><strong>Event shape</strong> (list, export and activity):</p>
@@ -2102,8 +2165,26 @@ curl -sS &quot;$OT/api/v1/backups&quot; -H &quot;Authorization: Bearer $TOKEN&qu
 <tr>
 <td><code>backup.restored</code></td>
 <td>success</td>
-<td>none (recorded by the server on its first start after <code>opentodo restore</code>)</td>
-<td><code>backup_id</code> (the archive file name)</td>
+<td>none after <code>opentodo restore</code>; the owner who confirmed a web restore</td>
+<td><code>backup_id</code> (the archive file name), recorded on the first start after the restore</td>
+</tr>
+<tr>
+<td><code>backup.restore_requested</code></td>
+<td>success</td>
+<td>owner</td>
+<td><code>backup_id</code> (archive or safety copy name), <code>source</code> (<code>archive</code>, <code>upload</code> or <code>safety-copy</code> for an undo); recorded on the start that applies it</td>
+</tr>
+<tr>
+<td><code>backup.restore_failed</code></td>
+<td>failure</td>
+<td>owner</td>
+<td><code>backup_id</code>, <code>reason</code> (<code>integrity</code>, <code>newer_schema</code>, <code>insufficient_storage</code>, <code>data_dir_in_use</code>, <code>apply_failed</code>); the server kept the previous database</td>
+</tr>
+<tr>
+<td><code>backup.safety_copy_deleted</code></td>
+<td>success</td>
+<td>owner</td>
+<td><code>backup_id</code> (the safety copy file name)</td>
 </tr>
 </tbody></table></div>
 <p>While sign-in is rate limited for an address, one <code>login.failed</code> event with reason <code>rate_limited</code> is recorded per window instead of one per refused attempt. Task and project edits are never audit events.</p>
@@ -2705,7 +2786,7 @@ curl -sS &quot;$OT/api/v1/views&quot; -H &quot;Authorization: Bearer $TOKEN&quot
 <tr>
 <td><code>session_required</code></td>
 <td>403</td>
-<td><code>POST /api/v1/assistant/turn</code> with an API token: the assistant is used from the app while signed in</td>
+<td><code>POST /api/v1/assistant/turn</code> with an API token: the assistant is used from the app while signed in; confirming a restore or deleting a safety copy with an API token</td>
 </tr>
 <tr>
 <td><code>unknown_skill</code></td>
@@ -2735,7 +2816,7 @@ curl -sS &quot;$OT/api/v1/views&quot; -H &quot;Authorization: Bearer $TOKEN&quot
 <tr>
 <td><code>conflict</code></td>
 <td>409</td>
-<td>starting or undoing an import while another import of yours runs; <code>POST /backups/run</code> while a backup is running</td>
+<td>starting or undoing an import while another import of yours runs; <code>POST /backups/run</code> while a backup is running, or after a restore was confirmed; confirming a restore while a backup runs</td>
 </tr>
 <tr>
 <td><code>too_large</code></td>
@@ -2965,7 +3046,32 @@ curl -sS &quot;$OT/api/v1/views&quot; -H &quot;Authorization: Bearer $TOKEN&quot
 <tr>
 <td><code>destination_error</code></td>
 <td>502</td>
-<td><code>POST /backups/test</code> when the destination refuses or cannot be reached</td>
+<td><code>POST /backups/test</code>, the archive list or preparing a restore when the destination refuses or cannot be reached</td>
+</tr>
+<tr>
+<td><code>passphrase_required</code></td>
+<td>422</td>
+<td>preparing an encrypted archive without a passphrase when the stored one is missing</td>
+</tr>
+<tr>
+<td><code>passphrase_invalid</code></td>
+<td>422</td>
+<td>preparing an encrypted archive with a passphrase that does not open it</td>
+</tr>
+<tr>
+<td><code>newer_schema</code></td>
+<td>409</td>
+<td>preparing an archive made by a newer OpenTodo version</td>
+</tr>
+<tr>
+<td><code>integrity</code></td>
+<td>400</td>
+<td>an uploaded or prepared file that is not an OpenTodo archive, or fails its checksum or database check</td>
+</tr>
+<tr>
+<td><code>insufficient_storage</code></td>
+<td>507</td>
+<td>an upload or restore the free disk space cannot hold</td>
 </tr>
 <tr>
 <td><code>email_disabled</code></td>
