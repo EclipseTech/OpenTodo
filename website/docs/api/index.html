@@ -8,13 +8,13 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#050912" media="(prefers-color-scheme: dark)">
-  <link rel="canonical" href="https://opentodo.pixari.dev/docs/api/">
+  <link rel="canonical" href="https://open-todo.app/docs/api/">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://opentodo.pixari.dev/docs/api/">
+  <meta property="og:url" content="https://open-todo.app/docs/api/">
   <meta property="og:site_name" content="OpenTodo">
   <meta property="og:title" content="HTTP API · OpenTodo docs">
   <meta property="og:description" content="Authentication, every route, entity fields, error codes and examples for scripts and integrations.">
-  <meta property="og:image" content="https://opentodo.pixari.dev/assets/og.png">
+  <meta property="og:image" content="https://open-todo.app/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -150,13 +150,13 @@ export TOKEN=ot_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
 <td>GET</td>
 <td><code>/api/v1/auth/status</code></td>
 <td>none</td>
-<td><code>{setupRequired, signupAllowed, authenticated, user, version, passkeysAvailable, oidc, mfa?, encryption?, minClientVersion?, demo?}</code>; <code>mfa</code>, <code>encryption</code> and <code>minClientVersion</code> only when signed in; <code>demo</code> (<code>{token, sandboxHours: {idle, max}, resetsAt}</code>: a fresh single-use sandbox-creation token valid for 10 minutes, the sandbox lifetimes in hours and the next nightly reset; no credentials) only on a <a href="/docs/self-hosting/demo/">demo instance</a> (see <a href="#two-factor-authentication">Two-factor authentication</a>, <a href="#single-sign-on">Single sign-on</a>, <a href="#end-to-end-encryption">End-to-end encryption</a>)</td>
+<td><code>{setupRequired, setupTokenRequired, signupAllowed, authenticated, user, version, passkeysAvailable, oidc, mfa?, encryption?, minClientVersion?, demo?}</code>; <code>mfa</code>, <code>encryption</code> and <code>minClientVersion</code> only when signed in; <code>demo</code> (<code>{token, sandboxHours: {idle, max}, resetsAt}</code>: a fresh single-use sandbox-creation token valid for 10 minutes, the sandbox lifetimes in hours and the next nightly reset; no credentials) only on a <a href="/docs/self-hosting/demo/">demo instance</a> (see <a href="#two-factor-authentication">Two-factor authentication</a>, <a href="#single-sign-on">Single sign-on</a>, <a href="#end-to-end-encryption">End-to-end encryption</a>)</td>
 </tr>
 <tr>
 <td>POST</td>
 <td><code>/api/v1/auth/register</code></td>
 <td>none</td>
-<td><code>{email, name?, password, invitation?, projectInvite?}</code> → 201 <code>{user}</code> + cookie. The first account becomes owner; afterwards an <code>invitation</code> secret admits one member while sign-up is closed, and a <code>projectInvite</code> secret creates a member who joins that project (201 <code>{user, projectId, role}</code>, see <a href="#project-invite-links">Project invite links</a>)</td>
+<td><code>{email, name?, password, invitation?, projectInvite?, setupToken?}</code> → 201 <code>{user}</code> + cookie. The first account becomes owner; when <code>OPENTODO_SETUP_TOKEN</code> is set (<code>setupTokenRequired</code> in the status), it needs <code>setupToken</code> with that value, otherwise 403 <code>setup_token_invalid</code>; afterwards an <code>invitation</code> secret admits one member while sign-up is closed, and a <code>projectInvite</code> secret creates a member who joins that project (201 <code>{user, projectId, role}</code>, see <a href="#project-invite-links">Project invite links</a>)</td>
 </tr>
 <tr>
 <td>POST</td>
