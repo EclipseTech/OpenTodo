@@ -47,6 +47,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/" aria-current="page">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -84,6 +86,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/" aria-current="page">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -104,13 +108,46 @@
       <p class="doc-meta"><span class="crumbs">Using OpenTodo <span aria-hidden="true">›</span> Guides</span><span class="version" title="Latest release these docs describe">Version 0.3.0</span></p>
 <h1 id="ai-assistant">AI assistant</h1>
 <p>The assistant is a chat panel inside OpenTodo. Ask it &quot;what is due today?&quot;, &quot;move everything overdue to Friday&quot;, &quot;break this task into steps&quot; or &quot;what did the team finish yesterday?&quot;. It reads your tasks to answer and <strong>proposes</strong> changes. Nothing changes until you review the proposal and apply it, and one step undoes it.</p>
-<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#open-the-assistant">Open the assistant</a></li><li><a href="#before-your-first-message">Before your first message</a></li><li><a href="#use-your-own-provider-and-key">Use your own provider and key</a></li><li><a href="#ask-and-review">Ask and review</a></li><li><a href="#undo">Undo</a></li><li><a href="#apply-small-changes-without-review">Apply small changes without review</a></li><li><a href="#conversations-stay-on-this-device">Conversations stay on this device</a></li><li><a href="#costs-and-limits">Costs and limits</a></li><li><a href="#safety">Safety</a></li><li><a href="#end-to-end-encrypted-accounts">End-to-end encrypted accounts</a></li><li><a href="#demo-instance">Demo instance</a></li><li><a href="#for-the-server-owner">For the server owner</a><ul><li><a href="#turn-it-on">Turn it on</a></li><li><a href="#other-settings">Other settings</a></li></ul></li></ul></nav></details>
+<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#open-the-assistant">Open the assistant</a></li><li><a href="#skills">Skills</a></li><li><a href="#paste-notes">Paste notes</a></li><li><a href="#before-your-first-message">Before your first message</a></li><li><a href="#use-your-own-provider-and-key">Use your own provider and key</a></li><li><a href="#ask-and-review">Ask and review</a></li><li><a href="#undo">Undo</a></li><li><a href="#apply-small-changes-without-review">Apply small changes without review</a></li><li><a href="#conversations-stay-on-this-device">Conversations stay on this device</a></li><li><a href="#costs-and-limits">Costs and limits</a></li><li><a href="#safety">Safety</a></li><li><a href="#end-to-end-encrypted-accounts">End-to-end encrypted accounts</a></li><li><a href="#demo-instance">Demo instance</a></li><li><a href="#for-the-server-owner">For the server owner</a><ul><li><a href="#turn-it-on">Turn it on</a></li><li><a href="#other-settings">Other settings</a></li></ul></li></ul></nav></details>
 
 <p>It is off until the server owner turns it on and chooses a model provider: Anthropic (Claude), OpenAI, Google Gemini, or any server that speaks the OpenAI-compatible Chat Completions format, including a model running on your own network. If the owner allows it, you can instead <a href="#use-your-own-provider-and-key">use your own provider and key</a>. Before your first message you see which provider receives your task content, and you decide.</p>
 <p><picture><source srcset="/docs/images/assistant-chat-dark.webp" media="(prefers-color-scheme: dark)"><img src="/docs/images/assistant-chat-light.webp" alt="The assistant panel on the right of the Inbox. The question What is due today? is answered with a list of four tasks, three of them overdue, and a token count under the answer." width="1500" height="950" loading="lazy" decoding="async"></picture></p>
 <h2 id="open-the-assistant">Open the assistant<a class="anchor" href="#open-the-assistant" aria-label="Link to this section: Open the assistant">#</a></h2>
-<p>Press <kbd>Shift</kbd>+<kbd>I</kbd>, or select <strong>Assistant</strong> in the header. On a wide screen it opens as a panel on the right; on a phone it fills the screen, with the message box above the keyboard. <kbd>Esc</kbd> closes it and puts the focus back where it was.</p>
-<p>The button and the shortcut only appear when the server owner has turned the assistant on.</p>
+<p>Press <kbd>Shift</kbd>+<kbd>I</kbd>, select <strong>Assistant</strong> in the header, or type in the <strong>Ask OpenTodo</strong> box at the top of <strong>Today</strong> or on the <strong>Ask</strong> screen (sidebar, or <kbd>g</kbd> then <kbd>k</kbd>). On a wide screen it opens as a panel on the right; on a phone it fills the screen, with the message box above the keyboard. <kbd>Esc</kbd> closes it and puts the focus back where it was.</p>
+<p>The button, the shortcut, the Ask box and the Ask screen only appear when the assistant is available to you. While it is off, the server owner sees one line on Today pointing to the assistant settings, which <strong>Dismiss</strong> hides for good on that device; other members see nothing.</p>
+<h2 id="skills">Skills<a class="anchor" href="#skills" aria-label="Link to this section: Skills">#</a></h2>
+<p>Skills are ready-made jobs the assistant knows how to do. Pick one from <strong>Skills</strong> in the Ask box or in the panel (next to the message box), or select one of the example cards. The panel shows what the skill does and an example; add your own words if you like, then send.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Turn an idea into a project</strong></td>
+<td>Turns an idea or pasted notes into one new project: a few phases, each with tasks and estimates.</td>
+</tr>
+<tr>
+<td><strong>Plan my week</strong></td>
+<td>Proposes due dates and times for your open work over the next 7 days, within your working day (Settings → Preferences → Calendar: day start, day end and planned hours). It never plans more than a day holds, and counts tasks without an estimate as 30 minutes.</td>
+</tr>
+<tr>
+<td><strong>Weekly review</strong></td>
+<td>Looks at the Inbox, overdue tasks and the coming week, and proposes what to reschedule, move or complete, with a short summary. It never proposes trashing your tasks.</td>
+</tr>
+<tr>
+<td><strong>Triage my inbox</strong></td>
+<td>Proposes a project, and a priority, labels and a date where the task gives a reason, for each Inbox task.</td>
+</tr>
+<tr>
+<td><strong>Break this down</strong></td>
+<td>Turns the selected task into subtasks with estimates. Also in a task&#39;s <strong>⋯</strong> menu.</td>
+</tr>
+</tbody></table></div>
+<p>A skill can only use the tools it needs (Break this down cannot move or complete anything), and what it proposes is reviewed, applied and undone exactly like any other answer.</p>
+<h2 id="paste-notes">Paste notes<a class="anchor" href="#paste-notes" aria-label="Link to this section: Paste notes">#</a></h2>
+<p>Paste meeting notes, an email or a list into the Ask box or the message box and it is kept apart as <strong>pasted text</strong>: the assistant uses it as material, never as instructions. If the text contains instructions (&quot;ignore your rules…&quot;), the assistant ignores them and says so. Pasted text counts toward the 256 KB limit of one message.</p>
 <h2 id="before-your-first-message">Before your first message<a class="anchor" href="#before-your-first-message" aria-label="Link to this section: Before your first message">#</a></h2>
 <p>The panel first shows what will be sent and to whom:</p>
 <ul>
@@ -226,7 +263,7 @@
       <a class="next" rel="next" href="/docs/notifications/"><span>Next</span>Notifications</a>
     </nav>
   </main>
-  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#open-the-assistant">Open the assistant</a></li><li><a href="#before-your-first-message">Before your first message</a></li><li><a href="#use-your-own-provider-and-key">Use your own provider and key</a></li><li><a href="#ask-and-review">Ask and review</a></li><li><a href="#undo">Undo</a></li><li><a href="#apply-small-changes-without-review">Apply small changes without review</a></li><li><a href="#conversations-stay-on-this-device">Conversations stay on this device</a></li><li><a href="#costs-and-limits">Costs and limits</a></li><li><a href="#safety">Safety</a></li><li><a href="#end-to-end-encrypted-accounts">End-to-end encrypted accounts</a></li><li><a href="#demo-instance">Demo instance</a></li><li><a href="#for-the-server-owner">For the server owner</a><ul><li><a href="#turn-it-on">Turn it on</a></li><li><a href="#other-settings">Other settings</a></li></ul></li></ul></nav></aside>
+  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#open-the-assistant">Open the assistant</a></li><li><a href="#skills">Skills</a></li><li><a href="#paste-notes">Paste notes</a></li><li><a href="#before-your-first-message">Before your first message</a></li><li><a href="#use-your-own-provider-and-key">Use your own provider and key</a></li><li><a href="#ask-and-review">Ask and review</a></li><li><a href="#undo">Undo</a></li><li><a href="#apply-small-changes-without-review">Apply small changes without review</a></li><li><a href="#conversations-stay-on-this-device">Conversations stay on this device</a></li><li><a href="#costs-and-limits">Costs and limits</a></li><li><a href="#safety">Safety</a></li><li><a href="#end-to-end-encrypted-accounts">End-to-end encrypted accounts</a></li><li><a href="#demo-instance">Demo instance</a></li><li><a href="#for-the-server-owner">For the server owner</a><ul><li><a href="#turn-it-on">Turn it on</a></li><li><a href="#other-settings">Other settings</a></li></ul></li></ul></nav></aside>
 </div>
 <footer class="site-footer">
   <div class="site-footer-inner">

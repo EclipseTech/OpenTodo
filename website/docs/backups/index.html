@@ -47,6 +47,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -84,6 +86,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -105,9 +109,9 @@
 <h1 id="backups">Backups</h1>
 <p>OpenTodo can back up its data directory on a schedule to a local directory, an
 S3-compatible bucket or a WebDAV collection, keep a bounded number of archives,
-optionally encrypt them with a passphrase, and restore them with nothing but the
-<code>opentodo</code> binary.</p>
-<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#quick-start">Quick start</a></li><li><a href="#destinations">Destinations</a><ul><li><a href="#folder-on-the-server">Folder on the server</a></li><li><a href="#s3-compatible-storage">S3-compatible storage</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#schedule-and-retention">Schedule and retention</a></li><li><a href="#encryption-and-secrets">Encryption and secrets</a></li><li><a href="#restore">Restore</a><ul><li><a href="#with-docker-compose">With Docker Compose</a></li><li><a href="#with-the-binary">With the binary</a></li><li><a href="#after-a-restore-devices">After a restore: devices</a></li></ul></li><li><a href="#environment-presets">Environment presets</a></li><li><a href="#what-a-backup-contains">What a backup contains</a><ul><li><a href="#manifestjson">manifest.json</a></li><li><a href="#layers">Layers</a></li></ul></li><li><a href="#encryption-format-otbk1">Encryption format (OTBK1)</a></li></ul></nav></details>
+optionally encrypt them with a passphrase, and restore them from the web app or
+with nothing but the <code>opentodo</code> binary.</p>
+<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#quick-start">Quick start</a></li><li><a href="#destinations">Destinations</a><ul><li><a href="#folder-on-the-server">Folder on the server</a></li><li><a href="#s3-compatible-storage">S3-compatible storage</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#schedule-and-retention">Schedule and retention</a></li><li><a href="#encryption-and-secrets">Encryption and secrets</a></li><li><a href="#restore">Restore</a><ul><li><a href="#restore-from-the-web-app">Restore from the web app</a></li><li><a href="#restore-from-the-command-line">Restore from the command line</a></li><li><a href="#after-a-restore-devices">After a restore: devices</a></li></ul></li><li><a href="#environment-presets">Environment presets</a></li><li><a href="#what-a-backup-contains">What a backup contains</a><ul><li><a href="#manifestjson">manifest.json</a></li><li><a href="#layers">Layers</a></li></ul></li><li><a href="#encryption-format-otbk1">Encryption format (OTBK1)</a></li></ul></nav></details>
 
 <p>Nothing runs until the owner turns it on. Every setting is optional and managed
 from <strong>Settings → Backups</strong> (owner only); operators who prefer environment
@@ -117,7 +121,7 @@ variables can preset them (see <a href="#environment-presets">Environment preset
 <li><a href="#destinations">Destinations</a></li>
 <li><a href="#schedule-and-retention">Schedule and retention</a></li>
 <li><a href="#encryption-and-secrets">Encryption and secrets</a></li>
-<li><a href="#restore">Restore</a></li>
+<li><a href="#restore">Restore</a>: <a href="#restore-from-the-web-app">from the web app</a> or <a href="#restore-from-the-command-line">from the command line</a></li>
 <li><a href="#environment-presets">Environment presets</a></li>
 <li><a href="#what-a-backup-contains">What a backup contains</a> and the <a href="#encryption-format-otbk1">encryption format</a></li>
 </ul>
@@ -242,10 +246,66 @@ backup.</li>
 </ul>
 <h2 id="restore">Restore<a class="anchor" href="#restore" aria-label="Link to this section: Restore">#</a></h2>
 <p>Restoring replaces the whole database (every account, token, project, task and
-the operation log) with the one in an archive. It runs with the server
-<strong>stopped</strong>, from the same binary:</p>
+the operation log) with the one in an archive. There are two ways, with the
+same checks and the same result: from <strong>Settings → Backups</strong> while the server
+runs, or with <code>opentodo restore</code> while it is stopped.</p>
+<h3 id="restore-from-the-web-app">Restore from the web app<a class="anchor" href="#restore-from-the-web-app" aria-label="Link to this section: Restore from the web app">#</a></h3>
+<ol>
+<li>Open <strong>Settings → Backups</strong> as the owner and scroll to <strong>Restore from a
+backup</strong>.</li>
+<li>Choose the source:<ul>
+<li><strong>From the backup destination</strong> lists the archives in the configured
+folder, S3 bucket or WebDAV collection, newest first, with their size and
+whether they are encrypted. Choose <strong>Preview</strong> on one.</li>
+<li><strong>Upload a file</strong> sends an archive from your computer, for example one
+made on another server. It is streamed to the data directory, never held
+in memory.</li>
+</ul>
+</li>
+<li>The server verifies the archive completely (the same checks as the command
+line, listed below) and shows a preview: when it was made, by which version,
+its size, and how many accounts, projects and tasks it holds. Nothing has
+changed yet. An encrypted archive made by this server opens with the stored
+passphrase; for one from another server you are asked for its passphrase.</li>
+<li>Read <strong>What will happen</strong>, type <code>RESTORE</code> and choose <strong>Restore and
+restart</strong>. If you have not confirmed your identity in the last ten minutes,
+you are asked for your password (or a code) first.</li>
+<li>The server stops gracefully, applies the restore before it reopens the
+database, and starts again in the same process: no container restart policy
+or shell is needed. The page shows <strong>Restoring and restarting…</strong> and reloads
+when the server is back, usually within seconds.</li>
+</ol>
+<p>Sessions live in the database, so anyone who signed in after the backup was
+taken (possibly you) signs in again; the sign-in screen says that the server
+was restored. After a restart the restore section shows the outcome: when, from
+which archive, and whether it worked. A restore that fails while it is applied
+(for example a damaged staged file) leaves the previous database in place: the
+server starts normally and the section, and the audit log, say why.</p>
+<p>A prepared restore you do not confirm is discarded after 30 minutes, or at once
+when you cancel. Confirming is refused while a backup is running; try again
+when it has finished. The audit log records who asked for which archive, then
+<code>backup.restored</code> or <code>backup.restore_failed</code>.</p>
+<p><strong>Undo.</strong> Every restore keeps the database it replaced as a safety copy.
+While the safety copy of the last restore exists, <strong>Undo last restore</strong> puts it
+back through the same preview, confirmation and restart. Undoing makes a new
+safety copy of its own.</p>
+<p><strong>Safety copies and disk space.</strong> Safety copies are listed under the restore
+section with their size and can be deleted (after a confirmation, and with a
+fresh sign-in check) to free space. They are never deleted automatically. A
+restore needs room for the archive, the extracted database and the safety copy,
+roughly <em>archive size + 2 × database size</em> plus a 64 MiB margin; the server
+checks first and refuses with the space it needs.</p>
+<p><strong>Reverse proxies.</strong> Uploads go through your reverse proxy, and many limit
+request bodies (nginx allows 1 MiB by default). If an upload is refused, raise
+the limit for <code>/api/v1/backups/restore/uploads</code> (nginx:
+<code>client_max_body_size 2g;</code>, Caddy needs nothing) or restore from the backup
+destination instead, which needs no upload.</p>
+<p>Restoring from the web app is owner-only, needs a signed-in session (API tokens
+cannot do it) and is not available on a <a href="/docs/self-hosting/demo/">demo instance</a>.</p>
+<h3 id="restore-from-the-command-line">Restore from the command line<a class="anchor" href="#restore-from-the-command-line" aria-label="Link to this section: Restore from the command line">#</a></h3>
+<p>The command line works with the server <strong>stopped</strong>, from the same binary:</p>
 <pre tabindex="0"><code class="language-sh">opentodo restore [--data-dir DIR] [--passphrase-file FILE] &lt;archive&gt;</code></pre>
-<p>What it does, in order, before touching anything:</p>
+<p>What both paths check, in order, before touching anything:</p>
 <ol>
 <li>refuses to run while any server uses the data directory (it needs
 <code>&lt;data&gt;/opentodo.lock</code> exclusively, which every running server holds shared,
@@ -264,7 +324,7 @@ naming both versions (upgrade the binary first);</li>
 one and gives it a new <a href="/docs/sync/#log-generation">log generation</a>. Migrations
 run on the next start, so an archive from an older version is upgraded
 automatically.</p>
-<h3 id="with-docker-compose">With Docker Compose<a class="anchor" href="#with-docker-compose" aria-label="Link to this section: With Docker Compose">#</a></h3>
+<h4 id="with-docker-compose">With Docker Compose<a class="anchor" href="#with-docker-compose" aria-label="Link to this section: With Docker Compose">#</a></h4>
 <pre tabindex="0"><code class="language-sh">docker compose stop opentodo
 
 # The archive must be readable inside the container. For the default local
@@ -281,7 +341,7 @@ you mount must be readable by uid 65532. On Coolify the image has no shell for
 the web terminal: stop the resource, run the restore on the host with
 <code>docker run --rm -v &lt;data volume&gt;:/data -v &lt;archive&gt;:/restore/archive:ro ghcr.io/pixari/opentodo restore /restore/archive</code>, then start the resource
 again.</p>
-<h3 id="with-the-binary">With the binary<a class="anchor" href="#with-the-binary" aria-label="Link to this section: With the binary">#</a></h3>
+<h4 id="with-the-binary">With the binary<a class="anchor" href="#with-the-binary" aria-label="Link to this section: With the binary">#</a></h4>
 <pre tabindex="0"><code class="language-sh">systemctl stop opentodo        # or however you run it
 OPENTODO_DATA_DIR=/var/lib/opentodo opentodo restore \
   --passphrase-file ~/opentodo-passphrase.txt \
@@ -294,8 +354,12 @@ re-sends every field it holds with the field&#39;s original timestamp. Edits mad
 after the backup therefore come back, and when two devices disagree the newer
 edit wins, exactly as in normal sync. No task is duplicated. Devices that are
 offline do this when they reconnect. See <a href="/docs/sync/#log-generation">docs/sync.md</a>.</p>
-<p>If something went wrong, stop the server, move <code>opentodo.db.pre-restore-…</code> back
-to <code>opentodo.db</code> and start it again.</p>
+<p>This is a merge, not a rollback: a device that changed a task after the backup
+sends that change back, so the restored server ends up with the backup plus
+everything your devices did since. There is no mode that makes devices discard
+their newer edits.</p>
+<p>If something went wrong, use <strong>Undo last restore</strong>, or stop the server, move
+<code>opentodo.db.pre-restore-…</code> back to <code>opentodo.db</code> and start it again.</p>
 <h2 id="environment-presets">Environment presets<a class="anchor" href="#environment-presets" aria-label="Link to this section: Environment presets">#</a></h2>
 <p>All optional. They seed the backup settings <strong>once</strong>, on a start where no backup
 settings exist yet; after that, changes in Settings win and the variables are
@@ -491,7 +555,7 @@ written from this description (<code>TestFormatMatchesDocumentedLayout</code>).<
       <a class="next" rel="next" href="/docs/self-hosting/sso/"><span>Next</span>Single sign-on</a>
     </nav>
   </main>
-  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#quick-start">Quick start</a></li><li><a href="#destinations">Destinations</a><ul><li><a href="#folder-on-the-server">Folder on the server</a></li><li><a href="#s3-compatible-storage">S3-compatible storage</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#schedule-and-retention">Schedule and retention</a></li><li><a href="#encryption-and-secrets">Encryption and secrets</a></li><li><a href="#restore">Restore</a><ul><li><a href="#with-docker-compose">With Docker Compose</a></li><li><a href="#with-the-binary">With the binary</a></li><li><a href="#after-a-restore-devices">After a restore: devices</a></li></ul></li><li><a href="#environment-presets">Environment presets</a></li><li><a href="#what-a-backup-contains">What a backup contains</a><ul><li><a href="#manifestjson">manifest.json</a></li><li><a href="#layers">Layers</a></li></ul></li><li><a href="#encryption-format-otbk1">Encryption format (OTBK1)</a></li></ul></nav></aside>
+  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#quick-start">Quick start</a></li><li><a href="#destinations">Destinations</a><ul><li><a href="#folder-on-the-server">Folder on the server</a></li><li><a href="#s3-compatible-storage">S3-compatible storage</a></li><li><a href="#webdav">WebDAV</a></li></ul></li><li><a href="#schedule-and-retention">Schedule and retention</a></li><li><a href="#encryption-and-secrets">Encryption and secrets</a></li><li><a href="#restore">Restore</a><ul><li><a href="#restore-from-the-web-app">Restore from the web app</a></li><li><a href="#restore-from-the-command-line">Restore from the command line</a></li><li><a href="#after-a-restore-devices">After a restore: devices</a></li></ul></li><li><a href="#environment-presets">Environment presets</a></li><li><a href="#what-a-backup-contains">What a backup contains</a><ul><li><a href="#manifestjson">manifest.json</a></li><li><a href="#layers">Layers</a></li></ul></li><li><a href="#encryption-format-otbk1">Encryption format (OTBK1)</a></li></ul></nav></aside>
 </div>
 <footer class="site-footer">
   <div class="site-footer-inner">
