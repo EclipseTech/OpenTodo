@@ -108,7 +108,7 @@
       <p class="doc-meta"><span class="crumbs">Using OpenTodo <span aria-hidden="true">›</span> Guides</span><span class="version" title="Latest release these docs describe">Version 0.3.0</span></p>
 <h1 id="labels-and-filters">Labels and filters</h1>
 <p>Projects say where a task belongs. Labels say what kind of task it is, across all projects: <code>@call</code>, <code>@errand</code>, <code>@waiting</code>, <code>@deep-work</code>. Filters then let you ask questions like &quot;every call I need to make this week&quot;.</p>
-<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#add-a-label-to-a-task">Add a label to a task</a></li><li><a href="#see-everything-with-one-label">See everything with one label</a></li><li><a href="#find-tasks-with-a-filter">Find tasks with a filter</a></li><li><a href="#save-a-filter-as-a-view">Save a filter as a view</a></li><li><a href="#tips">Tips</a></li></ul></nav></details>
+<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#add-a-label-to-a-task">Add a label to a task</a></li><li><a href="#see-everything-with-one-label">See everything with one label</a><ul><li><a href="#rename-recolour-and-reorder">Rename, recolour and reorder</a></li><li><a href="#merge-and-delete">Merge and delete</a></li></ul></li><li><a href="#find-tasks-with-a-filter">Find tasks with a filter</a></li><li><a href="#save-a-filter-as-a-view">Save a filter as a view</a></li><li><a href="#tips">Tips</a></li></ul></nav></details>
 
 <h2 id="add-a-label-to-a-task">Add a label to a task<a class="anchor" href="#add-a-label-to-a-task" aria-label="Link to this section: Add a label to a task">#</a></h2>
 <p>Pick whichever is quickest:</p>
@@ -121,14 +121,22 @@
 <h2 id="see-everything-with-one-label">See everything with one label<a class="anchor" href="#see-everything-with-one-label" aria-label="Link to this section: See everything with one label">#</a></h2>
 <p>The <strong>Labels</strong> group in the sidebar lists your labels with the number of open tasks for each. Select one to see all its tasks, grouped by project.</p>
 <p><picture><source srcset="/docs/images/labels-dark.webp" media="(prefers-color-scheme: dark)"><img src="/docs/images/labels-light.webp" alt="The errand label view listing its tasks grouped by project." width="1500" height="950" loading="lazy" decoding="async"></picture></p>
-<p><strong>All</strong> next to Labels (or <kbd>g</kbd> <kbd>l</kbd>) opens the full list. From there, or from a label&#39;s <strong>⋯</strong> menu in the sidebar, you can:</p>
+<p><strong>All</strong> next to Labels (or <kbd>g</kbd> <kbd>l</kbd>) opens the labels page: every label with its colour, its number of open tasks, a drag handle and a <strong>⋯</strong> menu. The sidebar rows have the same menu.</p>
+<h3 id="rename-recolour-and-reorder">Rename, recolour and reorder<a class="anchor" href="#rename-recolour-and-reorder" aria-label="Link to this section: Rename, recolour and reorder">#</a></h3>
 <ul>
-<li><strong>Rename</strong> it or change its <strong>Color</strong>. Every task shows the new name immediately.</li>
-<li><strong>Move up</strong> or <strong>Move down</strong> in the list.</li>
-<li><strong>Merge into…</strong> another label: tasks with the first label get the second one instead, and the first is deleted. Handy when you end up with both &quot;Errand&quot; and &quot;errand&quot;.</li>
-<li><strong>Delete label</strong>: it&#39;s removed from every task.</li>
+<li><strong>Rename</strong>: double-click a label, or focus it and press <kbd>F2</kbd>. A name another label already has is refused, and the old name stays.</li>
+<li><strong>Edit…</strong> in the menu opens a panel with the name, the colour swatches (arrow keys move between them), and buttons to move the label.</li>
+<li><strong>Reorder</strong>: drag a label by its handle (on a phone, press and hold the handle so scrolling the list still works), or focus it and press <kbd>Alt</kbd>+<kbd>↑</kbd> / <kbd>Alt</kbd>+<kbd>↓</kbd>. <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd> moves it to the top or bottom. The new position is announced to screen readers.</li>
+<li><kbd>.</kbd> or <kbd>Shift</kbd>+<kbd>F10</kbd> opens the menu of the focused label.</li>
 </ul>
-<p>If two of your devices created the same label while offline, both copies appear with a duplicate marker and an offer to merge them.</p>
+<p><picture><source srcset="/docs/images/label-menu-dark.webp" media="(prefers-color-scheme: dark)"><img src="/docs/images/label-menu-light.webp" alt="The Labels page with the menu of the errand label open: Edit, Rename, Move up and Move down with their shortcuts, Merge into, and Delete label at the bottom." width="1500" height="950" loading="lazy" decoding="async"></picture></p>
+<h3 id="merge-and-delete">Merge and delete<a class="anchor" href="#merge-and-delete" aria-label="Link to this section: Merge and delete">#</a></h3>
+<ul>
+<li><strong>Merge into…</strong>: type to find the label to keep. A confirmation names both labels and how many tasks change. Tasks with the first label get the second one instead, and the first is deleted. Handy when you end up with both &quot;Errand&quot; and &quot;errand&quot;.</li>
+<li><strong>Delete label…</strong>: the confirmation says how many tasks carry it. It&#39;s removed from them; the tasks stay.</li>
+</ul>
+<p>If two of your devices created the same label while offline, both copies get a <strong>duplicate</strong> badge, and the labels page offers to merge them. <strong>Swap</strong> chooses which one is kept.</p>
+<p>Every change is saved on this device first and syncs to your other devices, also when you make it offline.</p>
 <p>Labels are personal. In a shared project, other members don&#39;t see the labels you add.</p>
 <h2 id="find-tasks-with-a-filter">Find tasks with a filter<a class="anchor" href="#find-tasks-with-a-filter" aria-label="Link to this section: Find tasks with a filter">#</a></h2>
 <p>Open <strong>Filter</strong> in the sidebar (or press <kbd>g</kbd> <kbd>f</kbd>) and type a query. Results appear as you type, grouped by project.</p>
@@ -210,7 +218,7 @@
       <a class="next" rel="next" href="/docs/recurring-and-reminders/"><span>Next</span>Recurring tasks and reminders</a>
     </nav>
   </main>
-  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#add-a-label-to-a-task">Add a label to a task</a></li><li><a href="#see-everything-with-one-label">See everything with one label</a></li><li><a href="#find-tasks-with-a-filter">Find tasks with a filter</a></li><li><a href="#save-a-filter-as-a-view">Save a filter as a view</a></li><li><a href="#tips">Tips</a></li></ul></nav></aside>
+  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#add-a-label-to-a-task">Add a label to a task</a></li><li><a href="#see-everything-with-one-label">See everything with one label</a><ul><li><a href="#rename-recolour-and-reorder">Rename, recolour and reorder</a></li><li><a href="#merge-and-delete">Merge and delete</a></li></ul></li><li><a href="#find-tasks-with-a-filter">Find tasks with a filter</a></li><li><a href="#save-a-filter-as-a-view">Save a filter as a view</a></li><li><a href="#tips">Tips</a></li></ul></nav></aside>
 </div>
 <footer class="site-footer">
   <div class="site-footer-inner">
