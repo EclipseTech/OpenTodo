@@ -8,13 +8,13 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#050912" media="(prefers-color-scheme: dark)">
-  <link rel="canonical" href="https://opentodo.pixari.dev/docs/design-system/">
+  <link rel="canonical" href="https://open-todo.app/docs/design-system/">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://opentodo.pixari.dev/docs/design-system/">
+  <meta property="og:url" content="https://open-todo.app/docs/design-system/">
   <meta property="og:site_name" content="OpenTodo">
   <meta property="og:title" content="Design system · OpenTodo docs">
   <meta property="og:description" content="The visual language for contributors: principles, design tokens, the bundled typeface, the Storybook workbench and the accessibility and visual-regression checks.">
-  <meta property="og:image" content="https://opentodo.pixari.dev/assets/og.png">
+  <meta property="og:image" content="https://open-todo.app/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -226,7 +226,75 @@
 </tbody></table></div>
 <p>Rules for code under <code>web/src/ui/</code>:</p>
 <ul>
-<li>Use token utilities only. A raw palette class (<code>bg-slate-200</code>) or a hex literal fails <code>src/ui/tokens/lint.test.ts</code>. Screens in <code>web/src/app</code> are exempt until their redesign change migrates them.</li>
+<li>Use token utilities only, in shared components, screens (<code>web/src/app</code>) and the component classes of <code>index.css</code>. A raw palette class (<code>bg-slate-200</code>), a fixed <code>bg-white</code>/<code>text-black</code> or a hex literal fails <code>src/ui/tokens/lint.test.ts</code>, which names the file and line. A hex passed as <code>color=</code> is stored data and allowed. Screens that an open change is rewriting sit on the lint&#39;s named allow-list, which may only shrink.</li>
+<li>Choose a token by what the colour <strong>means</strong>, not by its hue today. Emerald is both the accent and the success colour, and only the meaning keeps them apart when a theme changes the accent:</li>
+</ul>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Meaning</th>
+<th>Tokens</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Card, panel, input background</td>
+<td><code>bg-surface</code></td>
+</tr>
+<tr>
+<td>Page background</td>
+<td><code>bg-canvas</code></td>
+</tr>
+<tr>
+<td>Well, inset, hover tint</td>
+<td><code>bg-sunken</code> (dark hovers <code>dark:hover:bg-raised</code>)</td>
+</tr>
+<tr>
+<td>Body text, headings</td>
+<td><code>text-default</code>, <code>text-strong</code></td>
+</tr>
+<tr>
+<td>Secondary text</td>
+<td><code>text-muted</code></td>
+</tr>
+<tr>
+<td>Hints, placeholders</td>
+<td><code>text-faint</code>, <code>placeholder-faint</code></td>
+</tr>
+<tr>
+<td>Dividers and card borders, input borders</td>
+<td><code>border-default</code>, <code>border-input</code></td>
+</tr>
+<tr>
+<td>Actions, links, selection, focus, current navigation</td>
+<td><code>bg-accent</code>, <code>text-accent</code>, <code>bg-accent-soft</code> with <code>text-on-accent-soft</code>, <code>ring-focus</code>, <code>text-on-accent</code> on the accent</td>
+</tr>
+<tr>
+<td>Done, saved, connected</td>
+<td><code>text-success</code>, <code>bg-success-soft</code> with <code>text-on-success-soft</code></td>
+</tr>
+<tr>
+<td>Errors, destructive actions</td>
+<td><code>text-danger</code>, <code>border-danger</code>, <code>bg-danger-soft</code> with <code>text-on-danger-soft</code></td>
+</tr>
+<tr>
+<td>Cautions</td>
+<td><code>text-warning</code>, <code>bg-warning-soft</code> with <code>text-on-warning-soft</code></td>
+</tr>
+<tr>
+<td>Neutral notices</td>
+<td><code>text-info</code>, <code>bg-info-soft</code> with <code>text-on-info-soft</code></td>
+</tr>
+<tr>
+<td>Task priority</td>
+<td><code>p1</code> to <code>p4</code></td>
+</tr>
+<tr>
+<td>Overlay scrim, search highlight</td>
+<td><code>bg-scrim</code>, <code>bg-highlight</code></td>
+</tr>
+</tbody></table></div>
+<p>A token switches between light and dark by itself, so a screen needs no <code>dark:</code> partner for colour.</p>
+<ul>
 <li>Before using a new foreground and background combination, add it to <code>src/ui/tokens/pairs.ts</code>. <code>contrast.test.ts</code> recomputes every pair from <code>index.css</code> in both themes and fails with the pair, theme and ratio.</li>
 </ul>
 <p>The legacy classes <code>.btn-primary</code>, <code>.btn-secondary</code>, <code>.btn-ghost</code>, <code>.btn-danger</code>, <code>.input</code> and <code>.kbd</code> keep their names and draw from the tokens. Use <code>.btn-secondary</code> for bordered neutral buttons.</p>
