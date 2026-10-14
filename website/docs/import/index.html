@@ -47,6 +47,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -84,6 +86,8 @@
 <div class="side-audience"><p class="side-audience-title">Using OpenTodo</p>
 <p class="side-group">Get started</p>
 <ul><li><a href="/docs/getting-started/">Getting started</a></li><li><a href="/docs/install-app/">Installing the app</a></li></ul>
+<p class="side-group">Switch from another app</p>
+<ul><li><a href="/docs/switch/todoist/">Switch from Todoist</a></li><li><a href="/docs/switch/things/">Switch from Things</a></li><li><a href="/docs/switch/ticktick/">Switch from TickTick</a></li><li><a href="/docs/switch/linear/">Switch from Linear</a></li></ul>
 <p class="side-group">Guides</p>
 <ul><li><a href="/docs/tasks-and-projects/">Tasks and projects</a></li><li><a href="/docs/views/">Views</a></li><li><a href="/docs/sections-and-boards/">Sections and boards</a></li><li><a href="/docs/labels-and-filters/">Labels and filters</a></li><li><a href="/docs/recurring-and-reminders/">Recurring tasks and reminders</a></li><li><a href="/docs/time-blocking/">Time blocking</a></li><li><a href="/docs/sharing/">Sharing and comments</a></li><li><a href="/docs/ai-and-agents/">Use AI with OpenTodo</a></li><li><a href="/docs/assistant/">AI assistant</a></li><li><a href="/docs/notifications/">Notifications</a></li><li><a href="/docs/offline-and-sync/">Offline and sync</a></li><li><a href="/docs/keyboard/">Keyboard shortcuts</a></li><li><a href="/docs/account-security/">Account security</a></li><li><a href="/docs/import-export/">Import and export</a></li><li><a href="/docs/trash-and-history/">Trash and history</a></li><li><a href="/docs/settings/">Settings</a></li><li><a href="/docs/troubleshooting/">Troubleshooting and FAQ</a></li></ul>
 <p class="side-group">Reference</p>
@@ -104,7 +108,7 @@
       <p class="doc-meta"><span class="crumbs">Using OpenTodo <span aria-hidden="true">›</span> Reference</span><span class="version" title="Latest release these docs describe">Version 0.3.0</span></p>
 <h1 id="import-formats">Import formats</h1>
 <p>OpenTodo imports tasks, projects, sections, recurrence rules and reminders from files: its own JSON export (for moving between instances or recovering), CSV from a spreadsheet or a script, and the JSON exports of other task managers. Open <strong>Settings → Data → Import data</strong> in the web app (or press <code>g</code> then <code>Shift+I</code>), or drive the same endpoints from a script; see <a href="#api">API</a> below.</p>
-<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#formats">Formats</a><ul><li><a href="#own-export-opentodo">Own export (opentodo)</a></li><li><a href="#csv-csv">CSV (csv)</a></li><li><a href="#json-generic">json-generic</a></li><li><a href="#json-items">json-items</a></li><li><a href="#json-lists">json-lists</a></li></ul></li><li><a href="#mapping-rules">Mapping rules</a><ul><li><a href="#sections">Sections</a></li><li><a href="#recurrence">Recurrence</a></li><li><a href="#reminders">Reminders</a></li></ul></li><li><a href="#duplicates">Duplicates</a></li><li><a href="#options">Options</a></li><li><a href="#jobs-limits-and-undo">Jobs, limits and undo</a><ul><li><a href="#memory">Memory</a></li></ul></li><li><a href="#api">API</a></li></ul></nav></details>
+<details class="toc-inline"><summary>On this page</summary><nav aria-label="On this page (inline)"><ul><li><a href="#formats">Formats</a><ul><li><a href="#own-export-opentodo">Own export (opentodo)</a></li><li><a href="#todoist-todoist-csv-todoist-backup">Todoist (todoist-csv, todoist-backup)</a></li><li><a href="#ticktick-ticktick-csv">TickTick (ticktick-csv)</a></li><li><a href="#linear-linear-csv">Linear (linear-csv)</a></li><li><a href="#things-database-things-db">Things database (things-db)</a></li><li><a href="#csv-csv">CSV (csv)</a></li><li><a href="#json-generic">json-generic</a></li><li><a href="#json-items">json-items</a></li><li><a href="#json-lists">json-lists</a></li></ul></li><li><a href="#mapping-rules">Mapping rules</a><ul><li><a href="#sections">Sections</a></li><li><a href="#recurrence">Recurrence</a></li><li><a href="#reminders">Reminders</a></li></ul></li><li><a href="#duplicates">Duplicates</a></li><li><a href="#options">Options</a></li><li><a href="#jobs-limits-and-undo">Jobs, limits and undo</a><ul><li><a href="#memory">Memory</a></li></ul></li><li><a href="#api">API</a></li></ul></nav></details>
 
 <p>Every import works in two steps:</p>
 <ol>
@@ -128,6 +132,11 @@
 <td>Exact round trip, see below</td>
 </tr>
 <tr>
+<td><code>things-db</code></td>
+<td>a SQLite database with Things 3&#39;s tables</td>
+<td>a copy of Things&#39; <code>main.sqlite</code>, see <a href="#things-database-things-db">Things</a></td>
+</tr>
+<tr>
 <td><code>json-items</code></td>
 <td>top-level <code>items</code> and <code>projects</code> arrays</td>
 <td>&quot;projects / sections / items&quot; backups</td>
@@ -143,11 +152,32 @@
 <td>a generic task list</td>
 </tr>
 <tr>
+<td><code>todoist-csv</code></td>
+<td>a header starting with <code>TYPE</code> and containing <code>CONTENT</code>, <code>PRIORITY</code>, <code>INDENT</code></td>
+<td>one project exported from Todoist, see <a href="#todoist-todoist-csv-todoist-backup">Todoist</a></td>
+</tr>
+<tr>
+<td><code>todoist-backup</code></td>
+<td>a ZIP of <code>todoist-csv</code> files</td>
+<td>Todoist&#39;s backup of every project</td>
+</tr>
+<tr>
+<td><code>ticktick-csv</code></td>
+<td>a preamble starting with <code>Date:</code>, then a <code>Folder Name, List Name, Title, Kind</code> header</td>
+<td>TickTick&#39;s CSV backup, see <a href="#ticktick-ticktick-csv">TickTick</a></td>
+</tr>
+<tr>
+<td><code>linear-csv</code></td>
+<td>a header with <code>ID</code>, <code>Team</code>, <code>Title</code>, <code>Status</code>, <code>Priority</code> and <code>UUID</code></td>
+<td>Linear&#39;s workspace export, see <a href="#linear-linear-csv">Linear</a></td>
+</tr>
+<tr>
 <td><code>csv</code></td>
 <td>a header row with a <code>title</code> column</td>
 <td>the documented columns below</td>
 </tr>
 </tbody></table></div>
+<p><strong>ZIP files.</strong> A ZIP whose files are all of one format is imported as one job, one preview and one undo; each preview row shows the file it came from. Folders, <code>__MACOSX/</code> and hidden files are skipped. An archive with more than 1,000 files, mixed formats, an unsafe file name, or more than ten times the upload limit when unpacked is refused with <code>400 invalid_file</code> before anything is written. A zipped <code>Things Database.thingsdatabase</code> folder is read as a <a href="#things-database-things-db">Things database</a>.</p>
 <p>A file matching none of these is refused with <code>400 unsupported_format</code>, naming the supported formats. If a JSON export from another app is not recognised, convert it to the CSV columns below; every field the data model holds can be expressed there.</p>
 <h3 id="own-export-opentodo">Own export (<code>opentodo</code>)<a class="anchor" href="#own-export-opentodo" aria-label="Link to this section: Own export (opentodo)">#</a></h3>
 <p>The file from <strong>Settings → Data → Download export</strong> or <code>GET /api/v1/export</code>. Labels, projects (with their sub-project tree), sections, tasks (with subtasks, completion and tombstones), reminders and saved views are recreated with their original ids and field values, so importing an export into an empty account and exporting again gives an equivalent file (comments aside, see below).</p>
@@ -160,6 +190,244 @@
 <li>The read-only <code>role</code> and <code>owner_id</code> the export adds to shared projects are not data and are skipped silently; the end-to-end encryption key record is not imported.</li>
 </ul>
 <p>When an id already exists in the account the row is skipped (<code>exists</code>), unless the <code>existing</code> option is <code>overwrite</code>: then only fields whose value differs are written (<code>update</code>), and fields that are unchanged keep their original clock, so a concurrent edit on a device is not clobbered needlessly. An entity that is deleted in the account is never resurrected (<code>skip</code>, reason <code>deleted</code>). Fields unknown to this server version are dropped with a warning.</p>
+<h3 id="todoist-todoist-csv-todoist-backup">Todoist (<code>todoist-csv</code>, <code>todoist-backup</code>)<a class="anchor" href="#todoist-todoist-csv-todoist-backup" aria-label="Link to this section: Todoist (todoist-csv, todoist-backup)">#</a></h3>
+<p>Todoist exports one project as CSV from the project&#39;s menu, and keeps backups of every project as a ZIP in its settings (Backups). The backup is the better choice: its file names carry the project names (<code>Work [2203306141].csv</code>), so projects keep their names. A single CSV does not name its project, so its tasks go to the target project.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Todoist</th>
+<th>Becomes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>each file in the backup</td>
+<td>a project (the <code>Inbox</code> file goes to your Inbox or the target project)</td>
+</tr>
+<tr>
+<td><code>meta</code> row <code>view_style=board</code></td>
+<td>the project opens as a board on the device that imports it</td>
+</tr>
+<tr>
+<td><code>section</code> row</td>
+<td>a section of the project</td>
+</tr>
+<tr>
+<td><code>task</code> row, <code>INDENT</code> 1, 2, 3 …</td>
+<td>a task; deeper indents are subtasks of the task above</td>
+</tr>
+<tr>
+<td><code>PRIORITY</code> 1–4</td>
+<td>priority p1–p4 (1 is Todoist&#39;s red flag)</td>
+</tr>
+<tr>
+<td><code>@label</code> in <code>CONTENT</code></td>
+<td>a label, removed from the title</td>
+</tr>
+<tr>
+<td><code>DESCRIPTION</code></td>
+<td>the description</td>
+</tr>
+<tr>
+<td><code>DATE</code> with <code>DATE_LANG</code></td>
+<td>the due date (and time); recurring dates become a rule, see below</td>
+</tr>
+<tr>
+<td><code>DURATION</code> in minutes</td>
+<td>the estimate</td>
+</tr>
+<tr>
+<td><code>REMINDER_OFFSET</code> / <code>REMINDER_DATE</code></td>
+<td>a relative or absolute reminder</td>
+</tr>
+<tr>
+<td><code>note</code> row</td>
+<td>appended to the task&#39;s description under &quot;Comments&quot; (with a warning)</td>
+</tr>
+<tr>
+<td><code>DEADLINE</code></td>
+<td>kept as a &quot;Deadline: …&quot; line in the description (with a warning)</td>
+</tr>
+<tr>
+<td><code>RESPONSIBLE</code></td>
+<td>dropped with a warning</td>
+</tr>
+</tbody></table></div>
+<p><code>DATE</code> is the text Todoist showed, in the language named by <code>DATE_LANG</code> (English, German, French, Italian, Spanish or Portuguese): <code>Oct 21</code>, <code>21 Okt.</code>, <code>21 de octubre de 2027 15:00</code>, <code>tomorrow</code>, <code>every monday</code>, <code>jeden Montag</code>, <code>alle 2 Wochen</code>. A date without a year takes the year of the export (the newest file time in the backup, otherwise the day you import). A recurring date becomes a rule whose first date is the next occurrence. A date that cannot be read leaves the task without a due date and adds a warning quoting it.</p>
+<h3 id="ticktick-ticktick-csv">TickTick (<code>ticktick-csv</code>)<a class="anchor" href="#ticktick-ticktick-csv" aria-label="Link to this section: TickTick (ticktick-csv)">#</a></h3>
+<p>TickTick&#39;s backup is one CSV, created from its settings (Backup). It starts with a few lines of metadata (the export date, the version and a status legend) before the header; the importer skips them.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>TickTick</th>
+<th>Becomes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Folder Name</code></td>
+<td>a parent project</td>
+</tr>
+<tr>
+<td><code>List Name</code></td>
+<td>a project inside its folder (<code>Inbox</code> goes to your Inbox or the target project)</td>
+</tr>
+<tr>
+<td><code>View Mode</code> <code>kanban</code></td>
+<td>the project opens as a board on the importing device</td>
+</tr>
+<tr>
+<td><code>Column Name</code></td>
+<td>the section</td>
+</tr>
+<tr>
+<td><code>Kind</code> <code>CHECKLIST</code> with item lines in <code>Content</code></td>
+<td>a task with one subtask per item; checked items are completed</td>
+</tr>
+<tr>
+<td><code>parentId</code></td>
+<td>the parent task</td>
+</tr>
+<tr>
+<td><code>Tags</code></td>
+<td>labels</td>
+</tr>
+<tr>
+<td><code>Content</code></td>
+<td>the description</td>
+</tr>
+<tr>
+<td><code>Priority</code> 5 / 3 / 1 / 0</td>
+<td>p1 / p2 / p3 / p4</td>
+</tr>
+<tr>
+<td><code>Due Date</code>, <code>Is All Day</code>, <code>Is Floating</code>, <code>Timezone</code></td>
+<td>the due date (and time) as you saw it in TickTick</td>
+</tr>
+<tr>
+<td><code>Reminder</code></td>
+<td>reminders (for example <code>-PT15M</code>)</td>
+</tr>
+<tr>
+<td><code>Repeat</code> (RRULE)</td>
+<td>a recurrence rule, when the grammar can express it</td>
+</tr>
+<tr>
+<td><code>Status</code> 2 / -1</td>
+<td>completed / completed with the label <code>canceled</code> (abandoned)</td>
+</tr>
+</tbody></table></div>
+<h3 id="linear-linear-csv">Linear (<code>linear-csv</code>)<a class="anchor" href="#linear-linear-csv" aria-label="Link to this section: Linear (linear-csv)">#</a></h3>
+<p>Linear exports a workspace&#39;s issues as CSV from its workspace settings (Import / Export).</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Linear</th>
+<th>Becomes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Project</code> (or <code>Team</code> when there is none)</td>
+<td>a project, which opens as a board on the importing device</td>
+</tr>
+<tr>
+<td><code>Status</code></td>
+<td>a section, in the order statuses first appear, so the board shows the same columns</td>
+</tr>
+<tr>
+<td><code>Title</code>, <code>Description</code></td>
+<td>the title, and the description starting with the issue identifier (<code>ENG-123</code>)</td>
+</tr>
+<tr>
+<td><code>Priority</code> Urgent / High / Medium / Low / No priority</td>
+<td>p1 / p2 / p3 / p4 / p4</td>
+</tr>
+<tr>
+<td><code>Labels</code></td>
+<td>labels</td>
+</tr>
+<tr>
+<td><code>Due Date</code></td>
+<td>the due date</td>
+</tr>
+<tr>
+<td><code>Parent issue</code></td>
+<td>the parent task</td>
+</tr>
+<tr>
+<td><code>Completed</code> / <code>Canceled</code></td>
+<td>completed / completed with the label <code>canceled</code></td>
+</tr>
+<tr>
+<td><code>Assignee</code></td>
+<td>kept when it is your own email address, otherwise dropped with a warning</td>
+</tr>
+<tr>
+<td><code>Estimate</code>, cycles, milestones, initiatives, SLA, relations</td>
+<td>dropped with a warning</td>
+</tr>
+</tbody></table></div>
+<h3 id="things-database-things-db">Things database (<code>things-db</code>)<a class="anchor" href="#things-database-things-db" aria-label="Link to this section: Things database (things-db)">#</a></h3>
+<p>Things 3 has no export, but its database can be copied, as Cultured Code&#39;s support article &quot;Accessing the Things database&quot; explains. Quit Things first. On a Mac, open <code>~/Library/Group Containers/JLMPQHK86H.com.culturedcode.ThingsMac/</code>, then the <code>ThingsData-…</code> folder, and copy <code>Things Database.thingsdatabase</code>. Upload its <code>main.sqlite</code> (right-click the folder and choose <strong>Show Package Contents</strong>), or a ZIP of the whole folder. On iPhone or iPad the article describes a diagnostics code that sends <code>Things Database.aar</code>; tap it to unpack it into the same folder.</p>
+<p>The file is read from a private copy on the server, read-only, using only Things&#39; own tables, and deleted after the preview or import. A SQLite file that is not a Things database is refused with <code>400 invalid_file</code>.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Things</th>
+<th>Becomes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>area</td>
+<td>a parent project</td>
+</tr>
+<tr>
+<td>project</td>
+<td>a project inside its area</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>a section of its project</td>
+</tr>
+<tr>
+<td>to-do</td>
+<td>a task in its project (or area, or your Inbox)</td>
+</tr>
+<tr>
+<td>checklist item</td>
+<td>a subtask; checked items are completed</td>
+</tr>
+<tr>
+<td>tag (nested tags as <code>parent/child</code>)</td>
+<td>a label</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>the description</td>
+</tr>
+<tr>
+<td>start date (&quot;When&quot;)</td>
+<td>the due date; a reminder time becomes a reminder</td>
+</tr>
+<tr>
+<td>repeating to-do</td>
+<td>a recurrence rule, when the grammar can express it</td>
+</tr>
+<tr>
+<td>completed / canceled</td>
+<td>completed / completed with the label <code>canceled</code></td>
+</tr>
+<tr>
+<td>deadline</td>
+<td>a &quot;Deadline: …&quot; line in the description (with a warning)</td>
+</tr>
+<tr>
+<td>Someday, This Evening</td>
+<td>dropped with a warning</td>
+</tr>
+<tr>
+<td>trashed items</td>
+<td>skipped</td>
+</tr>
+</tbody></table></div>
 <h3 id="csv-csv">CSV (<code>csv</code>)<a class="anchor" href="#csv-csv" aria-label="Link to this section: CSV (csv)">#</a></h3>
 <p>UTF-8, with a header row. Comma, semicolon and tab separators are detected from the header; quote fields that contain the separator. Header names are case-insensitive and spaces or dashes count as underscores (<code>Due Date</code> is <code>due_date</code>). Only <code>title</code> is required.</p>
 <div class="table-wrap" tabindex="0"><table>
@@ -520,7 +788,7 @@ curl -sS -X POST &quot;$OT/api/v1/import/jobs/&lt;id&gt;/undo&quot; -H &quot;Aut
       <a class="next" rel="next" href="/docs/e2ee/"><span>Next</span>End-to-end encryption</a>
     </nav>
   </main>
-  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#formats">Formats</a><ul><li><a href="#own-export-opentodo">Own export (opentodo)</a></li><li><a href="#csv-csv">CSV (csv)</a></li><li><a href="#json-generic">json-generic</a></li><li><a href="#json-items">json-items</a></li><li><a href="#json-lists">json-lists</a></li></ul></li><li><a href="#mapping-rules">Mapping rules</a><ul><li><a href="#sections">Sections</a></li><li><a href="#recurrence">Recurrence</a></li><li><a href="#reminders">Reminders</a></li></ul></li><li><a href="#duplicates">Duplicates</a></li><li><a href="#options">Options</a></li><li><a href="#jobs-limits-and-undo">Jobs, limits and undo</a><ul><li><a href="#memory">Memory</a></li></ul></li><li><a href="#api">API</a></li></ul></nav></aside>
+  <aside class="docs-toc"><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#formats">Formats</a><ul><li><a href="#own-export-opentodo">Own export (opentodo)</a></li><li><a href="#todoist-todoist-csv-todoist-backup">Todoist (todoist-csv, todoist-backup)</a></li><li><a href="#ticktick-ticktick-csv">TickTick (ticktick-csv)</a></li><li><a href="#linear-linear-csv">Linear (linear-csv)</a></li><li><a href="#things-database-things-db">Things database (things-db)</a></li><li><a href="#csv-csv">CSV (csv)</a></li><li><a href="#json-generic">json-generic</a></li><li><a href="#json-items">json-items</a></li><li><a href="#json-lists">json-lists</a></li></ul></li><li><a href="#mapping-rules">Mapping rules</a><ul><li><a href="#sections">Sections</a></li><li><a href="#recurrence">Recurrence</a></li><li><a href="#reminders">Reminders</a></li></ul></li><li><a href="#duplicates">Duplicates</a></li><li><a href="#options">Options</a></li><li><a href="#jobs-limits-and-undo">Jobs, limits and undo</a><ul><li><a href="#memory">Memory</a></li></ul></li><li><a href="#api">API</a></li></ul></nav></aside>
 </div>
 <footer class="site-footer">
   <div class="site-footer-inner">
