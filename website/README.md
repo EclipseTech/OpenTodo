@@ -52,7 +52,7 @@ OPENTODO_URL=http://127.0.0.1:18767 node scripts/screenshots.mjs   # from the re
 
 Output:
 
-- `website/assets/shots/*.webp`: every shot (desktop 1440×900 at 1.5×, so 2160×1350; phones 390×844 at 2×). About 30 files, 2.6 MB in total; keep the folder under 3 MB.
+- `docs/screenshots/site/*.webp`: every shot (copied to `website/assets/shots/` until the website repository serves the site; the site bundle ships them as `shots/`) (desktop 1440×900 at 1.5×, so 2160×1350; phones 390×844 at 2×). About 30 files, 2.6 MB in total; keep the folder under 3 MB.
 - `docs/screenshots/{today,project,day,mobile-dark}.png`: the four PNGs `README.md` embeds.
 
 Arguments: `node scripts/screenshots.mjs [png-dir] [webp-dir]`. `ONLY=today,board` captures a subset (seeding always runs); `CHROMIUM_PATH` points at a browser binary. The script needs an **empty** data directory because it creates the owner account; restart the server with a new directory for each run. Use a fresh browser profile: the app's service worker can otherwise serve an older bundle.
