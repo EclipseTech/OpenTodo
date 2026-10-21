@@ -1,0 +1,31 @@
+<lint-module
+    format="1"
+    dir="/w/app"
+    name=":app"
+    type="APP"
+    maven="opentodo-android:app:unspecified"
+    agpVersion="8.7.3"
+    buildFolder="build"
+    bootClassPath="/opt/android-sdk-linux/platforms/android-35/android.jar:/opt/android-sdk-linux/build-tools/35.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="17"
+    compileTarget="android-35">
+  <lintOptions
+      disable="MissingTranslation,GradleDependency,OldTargetApi"
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true">
+    <severities>
+      <severity
+        id="GradleDependency"
+        severity="IGNORE" />
+      <severity
+        id="MissingTranslation"
+        severity="IGNORE" />
+      <severity
+        id="OldTargetApi"
+        severity="IGNORE" />
+    </severities>
+  </lintOptions>
+  <variant name="debug"/>
+</lint-module>
