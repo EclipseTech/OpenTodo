@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.3" type="partial_results">
+    <map id="NotificationPermission">
+        <entry
+            name="source"
+            boolean="true"/>
+    </map>
+    <map id="ScheduleExactAlarm">
+        <location id="0"
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/app/opentodo/Reminders.kt"
+            line="66"
+            column="24"
+            startOffset="2792"
+            endLine="66"
+            endColumn="91"
+            endOffset="2859"/>
+        <entry
+            name="ChecksExactAlarmPermission"
+            boolean="true"/>
+    </map>
+    <map id="UnsafeImplicitIntentLaunch">
+            <map id="actionsSent">
+                    <map id="android.intent.action.VIEW (used to start an activity)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/app/opentodo/MainActivity.kt"
+                            line="314"
+                            column="29"
+                            startOffset="14648"
+                            endLine="314"
+                            endColumn="71"
+                            endOffset="14690"/>
+                    </map>
+                    <map id="android.settings.REQUEST_SCHEDULE_EXACT_ALARM (used to start an activity)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/app/opentodo/MainActivity.kt"
+                            line="285"
+                            column="29"
+                            startOffset="12882"
+                            endLine="285"
+                            endColumn="116"
+                            endOffset="12969"/>
+                    </map>
+            </map>
+    </map>
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="app.opentodo.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <entry
+            name="model"
+            string="attr[borderlessButtonStyle(R)],color[widget_text(U),widget_background(U),background(U),text(U),text_muted(U),widget_muted(U),accent(U),overdue(U)],drawable[ic_launcher(U),ic_add(U),ic_notification(U),widget_background(U)],id[root(U),web(U),error(U),error_text(U),retry(U),change_server(U),setup_root(U),address(U),message(U),progress(U),connect(U),alternative(U),quick_add(U),header(U),count(U),updated(U),row0(U),row1(U),row2(U),row3(U),row4(U),more(U)],layout[activity_main(U),activity_setup(U),widget_quick_add(U),widget_today(U)],string[app_name(U),widget_today(U),widget_quick_add(U),retry(U),change_server(U),setup_title(U),setup_intro(U),setup_hint(U),setup_connect(U),widget_quick_add_label(U),setup_connect_anyway(U),setup_try(U),setup_refused(U),setup_needs_https(U),setup_insecure(U),setup_no_network(U),setup_not_opentodo(U),setup_untrusted(U),change_server_confirm(U),error_offline(U),error_untrusted(U),channel_reminders(U),reminder_generic(U),reminder_text(U),action_snooze(U),action_dismiss(U),test_title(U),test_text(U),biometric_enable_title(U),biometric_unlock_title(U),biometric_use_passphrase(U),widget_today_description(U),widget_quick_add_description(U),widget_updated(U),widget_open_app(U),widget_locked(U),widget_empty(U),widget_untitled(U),widget_more(U),setup_old_webview(U)],style[Theme_OpenTodo(U),WidgetRow(U),Theme_AppCompat_DayNight_NoActionBar(R)],xml[data_extraction_rules(U),network_security_config(U),shortcuts(U),widget_today(U),widget_quick_add(U)];a^1,c^2,23^3^4^2a^2b^0,24^3^9^2c^4^2d^5^2e^2f^0,25^c^a^30^1,26^c^28^1^6^50,4f^51^7^3,50^1,54^9^2b,55^46^26,56^47^25;;;"/>
+    </map>
+
+</incidents>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Ir a inicio"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Desplazarse hacia arriba"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Más opciones"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Hecho"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Ver todo"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Seleccionar una aplicación"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DESACTIVADO"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ACTIVADO"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Suprimir"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Intro"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Función +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Mayús +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Espacio"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menú +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Buscar…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Borrar consulta"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Consulta de búsqueda"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Buscar"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Enviar consulta"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Búsqueda por voz"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Compartir con"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartir con <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ocultar"</string>
+    <string name="action_dismiss">Descartar</string>
+    <string name="action_snooze">Posponer 10 min</string>
+    <string name="app_name">OpenTodo</string>
+    <string name="biometric_enable_title">Desbloquear con huella o cara</string>
+    <string name="biometric_unlock_title">Desbloquear OpenTodo</string>
+    <string name="biometric_use_passphrase">Usar frase de contraseña</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Responder"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Vídeo"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Rechazar"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Colgar"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Llamada entrante"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Llamada en curso"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Filtrando una llamada entrante"</string>
+    <string name="change_server">Cambiar de servidor</string>
+    <string name="change_server_confirm">Esto elimina de este teléfono los datos del servidor actual: la copia sin conexión, los recordatorios programados, los datos de los widgets y el desbloqueo con huella. Se pierden los cambios aún no sincronizados.</string>
+    <string name="channel_reminders">Recordatorios</string>
+    <string msgid="5912733858573823945" name="confirm_device_credential_password">"Usar contraseña"</string>
+    <string msgid="4776854077120974966" name="default_error_msg">"Error desconocido"</string>
+    <string name="error_offline">No se puede acceder al servidor y OpenTodo nunca se ha abierto en este teléfono.</string>
+    <string name="error_untrusted">Este teléfono no confía en el certificado del servidor.</string>
+    <string msgid="1072308044213194243" name="fingerprint_dialog_touch_sensor">"Toca sensor huellas digitales"</string>
+    <string msgid="8216738333501875566" name="fingerprint_error_hw_not_available">"El hardware de huella digital no está disponible."</string>
+    <string msgid="6306988885793029438" name="fingerprint_error_hw_not_present">"El dispositivo no tiene ningún sensor de huellas digitales"</string>
+    <string msgid="7291787166416782245" name="fingerprint_error_lockout">"Has realizado demasiados intentos. Vuelve a probar más tarde."</string>
+    <string msgid="7520712796891883488" name="fingerprint_error_no_fingerprints">"No se ha registrado ninguna huella digital."</string>
+    <string msgid="7627716295344353987" name="fingerprint_error_user_canceled">"El usuario ha cancelado la operación de huella digital."</string>
+    <string msgid="3873359464293253009" name="fingerprint_not_recognized">"No se reconoce"</string>
+    <string msgid="3791785319221634505" name="generic_error_no_device_credential">"No se ha definido el PIN, el patrón o la contraseña."</string>
+    <string msgid="1807436368654974044" name="generic_error_no_keyguard">"Este dispositivo no admite PINs, patrones ni contraseñas."</string>
+    <string msgid="7309881387583143581" name="generic_error_user_canceled">"El usuario ha cancelado la autenticación."</string>
+    <string name="reminder_generic">Recordatorio</string>
+    <string name="reminder_text">Recordatorio de tarea</string>
+    <string name="retry">Reintentar</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Buscar"</string>
+    <string name="setup_connect">Conectar</string>
+    <string name="setup_connect_anyway">Conectar de todos modos</string>
+    <string name="setup_hint">todo.example.com</string>
+    <string name="setup_insecure">Esta dirección está en tu red local y no está cifrada: otras personas en la misma red podrían leer lo que envías. Toca de nuevo para conectar de todos modos.</string>
+    <string name="setup_intro">Escribe la dirección de tu servidor OpenTodo, la que abres en el navegador.</string>
+    <string name="setup_needs_https">Esta dirección necesita una conexión segura (https).</string>
+    <string name="setup_no_network">Sin conexión. El primer inicio necesita la red; esta pantalla lo vuelve a intentar cuando vuelva.</string>
+    <string name="setup_not_opentodo">Esta dirección no responde como un servidor OpenTodo. Revisa la dirección.</string>
+    <string name="setup_old_webview">El Android System WebView de este teléfono es antiguo (versión %1$s). Actualízalo desde la tienda de apps para que OpenTodo funcione por completo.</string>
+    <string name="setup_refused">Esta dirección no se puede usar. Escribe una dirección como todo.example.com.</string>
+    <string name="setup_title">Conéctate a tu servidor</string>
+    <string name="setup_try">Probar %1$s</string>
+    <string name="setup_untrusted">Este teléfono no confía en el certificado del servidor. Pregunta a quien gestiona el servidor o instala su autoridad de certificación en los ajustes de Android.</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="test_text">Los recordatorios aparecerán así.</string>
+    <string name="test_title">Las notificaciones funcionan</string>
+    <string name="widget_empty">No queda nada para hoy.</string>
+    <string name="widget_locked">Bloqueado. Tareas: %1$d, vencidas: %2$d</string>
+    <string name="widget_more">+ %1$d más</string>
+    <string name="widget_open_app">Abre OpenTodo una vez para llenar este widget.</string>
+    <string name="widget_quick_add">Añadir rápido</string>
+    <string name="widget_quick_add_description">Abre OpenTodo para añadir una tarea</string>
+    <string name="widget_quick_add_label">Añadir tarea</string>
+    <string name="widget_today">Hoy</string>
+    <string name="widget_today_description">Tus tareas de hoy</string>
+    <string name="widget_untitled">Tarea</string>
+    <string name="widget_updated">Actualizado %1$s</string>
+</resources>

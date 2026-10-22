@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="app.opentodo.WidgetModelTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-21T23:23:29" hostname="bdbfdfed959b" time="0.008">
+  <properties/>
+  <testcase name="badFieldsAreTamed" classname="app.opentodo.WidgetModelTest" time="0.001"/>
+  <testcase name="todayList" classname="app.opentodo.WidgetModelTest" time="0.006"/>
+  <testcase name="nothingPublished" classname="app.opentodo.WidgetModelTest" time="0.001"/>
+  <testcase name="lockedShowsCountsOnly" classname="app.opentodo.WidgetModelTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

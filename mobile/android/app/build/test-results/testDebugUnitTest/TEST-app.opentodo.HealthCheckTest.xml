@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="app.opentodo.HealthCheckTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-21T23:23:29" hostname="bdbfdfed959b" time="0.059">
+  <properties/>
+  <testcase name="responses" classname="app.opentodo.HealthCheckTest" time="0.007"/>
+  <testcase name="failures" classname="app.opentodo.HealthCheckTest" time="0.001"/>
+  <testcase name="localServer" classname="app.opentodo.HealthCheckTest" time="0.05"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
