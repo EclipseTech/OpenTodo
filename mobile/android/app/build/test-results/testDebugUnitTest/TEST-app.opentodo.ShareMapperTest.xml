@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="app.opentodo.ShareMapperTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-21T23:23:29" hostname="bdbfdfed959b" time="0.002">
-  <properties/>
-  <testcase name="limitsBeforeHandOver" classname="app.opentodo.ShareMapperTest" time="0.0"/>
-  <testcase name="textAndLinks" classname="app.opentodo.ShareMapperTest" time="0.001"/>
-  <testcase name="files" classname="app.opentodo.ShareMapperTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
